@@ -14,13 +14,13 @@ document.
 Every project must start off using a form of version control system
 (VCS), and for this we are using Git.  While Git is a distributed VCS
 (DVCS), we do make use of GitHub as the central location for the
-development activities that require group co-ordination, as GitHub
+development activities that require group coordination, as GitHub
 provides a number of facilities that will be outlined in this document.
 
 As GitHub is a centralised SaaS (Software as a Service) that does not
 have a generally available local deployment avenue (cost is prohibitive
 for academic projects), GitLab is often touted as the alternative should
-a local deployment is required.  This is being investigaged for PMR
+a local deployment is required.  This is being investigated for PMR
 (Physiome Mode Repository) as that project make use of Git as the DVCS
 system and their users are starting to demand features like pull
 requests (which in GitLab they are termed "merge requests").  Regardless
@@ -66,7 +66,7 @@ Pick a method, and document/stick with the project.
 
 ## Best practices for Git
 
-Once a project is stablised and has at least a single stable release,
+Once a project is stabilised and has at least a single stable release,
 maintaining that stability is paramount.  For best results, this should
 be achieved as soon as possible, preferably as early as possible during
 the development stage.
@@ -86,7 +86,7 @@ Generally, this branch must have all tests passed and all documentation
 reviewed, as this is may be the face of the project for the people that
 came in for a visit.  This also means that any commits made/pushed to
 this branch must be permanent - i.e. this means a forced push to the
-main brannch (`git push -f origin <main_branch>`) **must** be avoided at
+main branch (`git push -f origin <main_branch>`) **must** be avoided at
 all costs, to avoid randomly breaking clones/forks of the project that
 other developers may have.  Any changes to the main branch should be
 coordinated using other means.
@@ -161,7 +161,7 @@ can be done?
 A good start is to ensure that every commit/changeset contains only
 changes that relate to one specific item, where that item may be a
 singular sub-feature that makes up the feature, a single bug fix, or
-reindentation/whitespace clean up, or spelling fixes to documentation
+indentation/whitespace clean up, or spelling fixes to documentation
 (to the whole code base).  This ensures that there is good isolation
 between different types of changes and the different changes of the same
 type.  This also make it possible/easier to review individual commit or
@@ -244,7 +244,7 @@ they will then need to correct (or verify that it may be a false alarm,
 because of how these failures can be intermittent due to issues such as
 DNS).
 
-Gven that most software projects of the ABI are of the free or open
+Given that most software projects of the ABI are of the free or open
 source nature, there are many free-to-use services readily available to
 achieve CI, without having to deploy specific infrastructure such as
 Buildbot or Jenkins.  While certain projects at the ABI do make use of
@@ -335,10 +335,10 @@ solving issues with the software in the future.
 
 # Documentation guidelines
 
-Documentation should be cleared, concised and ideally provide example on
-how they be used.  Often times there are times when code changes happen
-without corresponding updates to the documetation.  This is problematic
-as end users will be confused as to why the examples do not do what they
+Documentation should be clear, concise and ideally provide example on
+how they are to be used.  Often times code changes are made without
+corresponding updates to the documentation.  This is problematic as end
+users will be confused as to why the examples do not do what they
 expected.  Certain languages provide frameworks (such as Python's
 `doctest` module) that may be leveraged to ensure that the documented
 examples match the implementation details (e.g. set the project up so
@@ -358,8 +358,8 @@ assistance to ensure this is achieved.
 
 To ensure documentation that is inclusive such that it will not make any
 reader feel excluded, the text should be inclusive of all gender and
-cultural affilations while not excluding any person.  No favorism should
-be shown.  The following guidelines should help to achieve that:
+cultural affiliation while not excluding any person.  No favourism
+should be shown.  The following guidelines should help to achieve that:
 
 - Note the usage of gender neutral language.
 - Avoid the usage of any first-person, second-person pronouns except for
@@ -371,8 +371,8 @@ be shown.  The following guidelines should help to achieve that:
     pronoun).
   - The usage of the singular, first-person pronoun may be used in a
     Frequently Asked Question context, as the usage of that pronoun
-    referr to the reader themselves.
-  - The usage of the plural, first-personal pronoun (i.e. "we") may be
+    refer to the reader themselves.
+  - The usage of the plural, first-person pronoun (i.e. "we") may be
     used when referring to the owner or the owner's organisation of the
     project.
   - The avoidance of second-person pronouns stem from the avoidance of
@@ -386,7 +386,7 @@ be shown.  The following guidelines should help to achieve that:
 - Do not use gendered pronouns, as it runs counter to inclusivity.  
 - When pronouns are required, the usage of neutral, third-person
   pronouns are recommended.  (e.g. use "one", "they", or "them", when
-  refering to a specific, unambiguous role or group).
+  referring to a specific, unambiguous role or group).
 
   - Exceptions to this can arise if a specific person is being referred;
     their preferred pronoun(s) should be used instead.
