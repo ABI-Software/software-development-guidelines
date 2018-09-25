@@ -20,10 +20,10 @@ provides a number of facilities that will be outlined in this document.
 As GitHub is a centralised SaaS (Software as a Service) that does not
 have a generally available local deployment avenue (cost is prohibitive
 for academic projects), GitLab is often touted as the alternative should
-a local deployment is required.  This is being investigated for PMR
+a local deployment be required.  This is being investigated for PMR
 (Physiome Mode Repository) as that project make use of Git as the DVCS
-system and their users are starting to demand features like pull
-requests (which in GitLab they are termed "merge requests").  Regardless
+system and users of PMR are starting to demand features like pull
+requests (GitLab uses the term "merge requests").  Regardless
 of the future direction, the concepts between these two competing
 systems are similar and should apply in most cases.
 
@@ -39,14 +39,14 @@ Either way is fine, but ultimately the project *must* contain some kind
 of README file, either reStructuredText or markdown is fine.  Just keep
 that consistent to the project and/or the language/framework that is
 being used (e.g. Python always use reStructuredText for best results, as
-historically PyPI only support that).
+historically PyPi only supports that).
 
 ### During prototyping
 
 Things may come up and then brought down fast, so the following sections
 that has many formalities may not directly apply.  However, given that
-prototype projects often end up on production somehow, the methodologies
-that were neglected will typically rear their ugly ends, so following as
+prototype projects often end up in production somehow, the methodologies
+that were neglected will typically rear their ugly heads, so following as
 much of the following is highly recommended.
 
 ### Commits and branches
@@ -62,7 +62,7 @@ projects, and that is fine.
 Once a project matures, branches should be used for introduction of
 features.
 
-Pick a method, and document/stick with the project.
+Pick a method, and document/stick with it for the lifetime of the project.
 
 ## Best practices for Git
 
@@ -72,7 +72,7 @@ be achieved as soon as possible, preferably as early as possible during
 the development stage.
 
 Please note that some of the instructions below assumes basic knowledge
-of various git terminologies.
+of various Git terminologies.
 
 ### What goes in the main branch
 
@@ -94,7 +94,7 @@ coordinated using other means.
 Do note that force pushes do and will happen under other circumstances,
 to be documented in later sections.
 
-When a project matures, this main branch should no longer be directly be
+When a project matures, this main branch should no longer be directly
 committed to, and this also means changes that were never present on
 some feature/development branch should also never be present here.  This
 is to facilitate code review and to allow better auditing and control on
@@ -152,7 +152,7 @@ and sanity for everyone involved, there are rules that should be
 followed.
 
 Imagine a commit with 20 000 lines of changes, spread throughout 60 plus
-files, with a message that simply stated "fixed a bug".  One have to ask
+files, with a message that simply stated "fixed a bug".  One has to ask
 themselves, what bug, and huh?  While this extreme sounds comedic, in
 practice, this happens a lot on a much smaller scale, perhaps it would
 be a 200 line change with the same message.  So this is not good, what
@@ -227,11 +227,11 @@ following:
 - Continuous integration (CI) is triggered.
 - Notification of the build failures (if any).
 - Code review.
-- Merger of the feature branch into the main branch at origin.
+- Merge of the feature branch into the main branch at origin.
 
 ### Continuous integration
 
-The first point significantly highlight why unittests and/or integration
+The first point significantly highlights why unittests and/or integration
 tests should be provided with the project.  This is the very first line
 of defense against bad code from being accidentally added to the project
 itself.  While local testing may show that all is well, with an
@@ -244,7 +244,7 @@ they will then need to correct (or verify that it may be a false alarm,
 because of how these failures can be intermittent due to issues such as
 DNS).
 
-Given that most software projects of the ABI are of the free or open
+Given that most software projects at the ABI are of the free or open
 source nature, there are many free-to-use services readily available to
 achieve CI, without having to deploy specific infrastructure such as
 Buildbot or Jenkins.  While certain projects at the ABI do make use of
@@ -285,7 +285,7 @@ to the one being outlined below, and the steps are:
   any.
 - Do not use fast-forward: merge with `git merge --no-ff`.  Yes, while
   this creates a merge commit when technically none is needed, this
-  allows the preservation of commit identifiers be done more easily.
+  allows the preservation of commit identifiers to be done more easily.
 
 The target branch is often times the main development branch, however,
 there are situations where this is not the case, for instance the
@@ -336,7 +336,7 @@ solving issues with the software in the future.
 # Documentation guidelines
 
 Documentation should be clear, concise and ideally provide example on
-how they are to be used.  Often times code changes are made without
+how the software is to be used.  Often times code changes are made without
 corresponding updates to the documentation.  This is problematic as end
 users will be confused as to why the examples do not do what they
 expected.  Certain languages provide frameworks (such as Python's
@@ -371,7 +371,7 @@ should be shown.  The following guidelines should help to achieve that:
     pronoun).
   - The usage of the singular, first-person pronoun may be used in a
     Frequently Asked Question context, as the usage of that pronoun
-    refer to the reader themselves.
+    refers to the reader themselves.
   - The usage of the plural, first-person pronoun (i.e. "we") may be
     used when referring to the owner or the owner's organisation of the
     project.
