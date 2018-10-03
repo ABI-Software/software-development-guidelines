@@ -1,7 +1,7 @@
 Development guidelines
 ======================
 
-This set of documentation intend to outline some rough guidelines on how software projects are to be structured and developed as part of a team at the Auckland Bioengineering Institute.
+This set of documentation intends to outline some rough guidelines on how software projects are to be structured and developed as part of a team at the Auckland Bioengineering Institute.
 Naturally, the contents on these matters will grow over time, as contributors to this document put in their thoughts.
 Also note that at this stage these are guidelines, and not hard rules set in stone that ignore the context that a project may have.
 Use judgement before applying the concepts introduced in this document.
@@ -9,11 +9,11 @@ Use judgement before applying the concepts introduced in this document.
 Version control
 ---------------
 
-Every project must start off using a form of version control system (VCS), and for this we are using Git.
-While Git is a distributed VCS (DVCS), we do make use of GitHub as the central location for the development activities that require group coordination, as GitHub provides a number of facilities that will be outlined in this document.
+Every project must start off using a form of version control system (VCS), and for this we are using `Git <https://git-scm.com/>`__.
+While `Git <https://git-scm.com/>`__ is a distributed VCS (DVCS), we do make use of `GitHub <https://github.com/>`__ as the central location for the development activities that require group coordination, as `GitHub <https://github.com/>`__ provides a number of facilities that will be outlined in this document.
 
-As GitHub is a centralised SaaS (Software as a Service) that does not have a generally available local deployment avenue (cost is prohibitive for academic projects), GitLab is often touted as the alternative should a local deployment be required.
-This is being investigated for PMR (Physiome Mode Repository) as that project make use of Git as the DVCS system and users of PMR are starting to demand features like pull requests (GitLab uses the term "merge requests").
+As `GitHub <https://github.com/>`__ is a centralised SaaS (Software as a Service) that does not have a generally available local deployment avenue (cost is prohibitive for academic projects), `GitLab <https://about.gitlab.com/>`__ is often touted as the alternative should a local deployment be required.
+This is being investigated for PMR (Physiome Mode Repository) as that project make use of `Git <https://git-scm.com/>`__ as the DVCS system and users of PMR are starting to demand features like pull requests (`GitLab <https://about.gitlab.com/>`__ uses the term "merge requests").
 Regardless of the future direction, the concepts between these two competing systems are similar and should apply in most cases.
 
 Basic Git/GitHub
@@ -24,20 +24,19 @@ In the beginning...
 
 Every project starts off with a base commit.
 While many projects do start off with a README file, some repositories do start off as a complete blank slate (`git commit --allow-empty -m 'initial commit'`).
-Either way is fine, but ultimately the project *must* contain some kind of README file, either reStructuredText or markdown is fine.
-Just keep that consistent to the project and/or the language/framework that is being used (e.g. Python always use reStructuredText for best results, as historically PyPi only supports that).
+Either way is fine, but ultimately the project **must** contain some kind of README file, using the reStructuredText markup syntax.
 
 During prototyping
 ~~~~~~~~~~~~~~~~~~
 
-Things may come up and then brought down fast, so the following sections that has many formalities may not directly apply.
+Things may come up and then brought down fast, so the following sections that have many formalities may not directly apply.
 However, given that prototype projects often end up in production somehow, the methodologies that were neglected will typically rear their ugly heads, so following as much of the following is highly recommended.
 
 Commits and branches
 ~~~~~~~~~~~~~~~~~~~~
 
 A project typically starts off being committed to `master`.
-This is a good enough default, however that word is definitely overloaded so a definition should be outlined somewhere to state that this is the main development branch, or the branch that is guaranteed to reference the latest stable release.
+This is a good enough default, however that word is definitely overloaded, so a definition should be outlined somewhere to state that this is the main development branch, or the branch that is guaranteed to reference the latest stable release.
 Current observation show that `master` is typically being used as the current latest development branch for many projects, and that is fine.
 
 Once a project matures, branches should be used for introduction of features.
@@ -51,7 +50,7 @@ Once a project is stabilised and has at least a single stable release, maintaini
 For best results, this should be achieved as soon as possible, preferably as early as possible during the development stage.
 
 Please note that some of the instructions below assumes basic knowledge
-of various Git terminologies.
+of various `Git <https://git-scm.com/>`__ terminologies.
 
 What goes in the main branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,7 +60,7 @@ will first see.
 Depending on the nature of the project, this may be a reference to the latest release branch, or some kind of stable development branch.
 This should be defined in the documentation for that given project.
 
-Generally, this branch must have all tests passed and all documentation reviewed, as this is may be the face of the project for the people that came in for a visit.
+Generally, this branch must have all tests passed and all documentation reviewed, as this is / may be the face of the project for the people that came in for a visit.
 This also means that any commits made/pushed to this branch must be permanent - i.e. this means a forced push to the main branch (`git push -f origin <main_branch>`) **must** be avoided at all costs, to avoid randomly breaking clones/forks of the project that other developers may have.
 Any changes to the main branch should be coordinated using other means.
 
@@ -74,7 +73,7 @@ This is especially important in the context of security related fixes - properly
 How to make changes
 ~~~~~~~~~~~~~~~~~~~
 
-If the main branch can no longer be committed to, how can any change be done?
+If the main branch can no longer be committed to, how can any changes be done?
 This is where "feature branches" comes in.
 
 Whenever a new feature is required or conceived, one might have accidentally started doing some development and made commits, and end up with some commits like this:
@@ -101,7 +100,7 @@ Make *sure* the current working tree is clean (use `git status` to check) and th
 
 This cleans the working tree (wiping any changes that haven't been committed or stashed elsewhere) and then set the local `master` branch to be identical to the one in `origin`.
 
-Naturally, with any given feature branch, ideally it should only contain changes that relate directly to that one feature, to ease the process of auditing and reviewing of the work that is being introduced to the project.
+Naturally, with any given feature branch, it should only contain changes that relate directly to that one feature, to ease the process of auditing and reviewing of the work that is being introduced to the project.
 
 What is in a commit
 ~~~~~~~~~~~~~~~~~~~
@@ -109,33 +108,33 @@ What is in a commit
 A commit (or a changeset) is the basic unit of change for a given project.
 To facilitate ease of debugging, good development practices and sanity for everyone involved, there are rules that should be followed.
 
-Imagine a commit with 20 000 lines of changes, spread throughout 60 plus files, with a message that simply stated "fixed a bug".
+Imagine a commit with 20,000 lines of changes, spread throughout 60+ files, with a message that simply stated "fixed a bug".
 One has to ask themselves, what bug, and huh?
 While this extreme sounds comedic, in practice, this happens a lot on a much smaller scale, perhaps it would be a 200 line change with the same message.
 So this is not good, what can be done?
 
 A good start is to ensure that every commit/changeset contains only changes that relate to one specific item, where that item may be a singular sub-feature that makes up the feature, a single bug fix, or indentation/whitespace clean up, or spelling fixes to documentation (to the whole code base).
 This ensures that there is good isolation between different types of changes and the different changes of the same type.
-This also make it possible/easier to review individual commit or changesets in a more focused and cohesive manner, as it reduces the amount of mental state changes in the reviewer's mind and help them focus on what actually was done.
+This also makes it possible/easier to review individual commits or changesets in a more focused and cohesive manner, as it reduces the amount of mental state changes in the reviewer's mind and help them focus on what actually was done.
 
-Example A: The widget may now slide across the status bar due to a new method of presenting error messages presented by the API that is also being introduced in the same project.
+**Example A:** the widget may now slide across the status bar due to a new method of presenting error messages presented by the API that is also being introduced in the same project.
 There are at least two commits here, where the first commit should be the presentation of the new API call (or feature), and the second should be the UI changes.
 If they cannot be split apart, this may be an indication of underlying architectural issues (where there may be too much tight coupling between components).
 
-Example B: There may be instances where a drastic fix touch upon multiple files with maybe 100+ lines of total changes.
+**Example B:** there may be instances where a drastic fix touch upon multiple files with maybe 100+ lines of total changes.
 The commit message may be a good place to outline exactly what was done, combined with relevant comments in the code itself that hint to the reader that they should use `git blame` to find the relevant changeset that would give them the overall picture of what was done.
 
-Example C: Sometimes being terse isn't completely bad.
+**Example C:** sometimes being terse isn't completely bad.
 An introduction of a completely new suite of tests for the code may not need an extensive commit message.
 Perhaps a single sentence will suffice when more documentation is available in the form of comments in the test cases being added.
 
 Commit message
 ~~~~~~~~~~~~~~
 
-(The author of this section has what some might term as subjective viewpoints for this topic)
+(The `author <https://github.com/metatoaster>`__ of this section has what some might term as subjective viewpoints for this topic)
 
 A project should adopt a specific format and then adhere to them.
-For projects managed by Tommy, the commit messages follow this formula:
+For projects managed by `Tommy <https://github.com/metatoaster>`__, the commit messages follow this formula:
 
 ::
 
@@ -169,12 +168,12 @@ If the project was already set up with the process, this usually triggers the fo
 Continuous integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The first point significantly highlights why unittests and/or integration tests should be provided with the project.
+The first point significantly highlights why unit tests and/or integration tests should be provided with the project.
 This is the very first line of defense against bad code from being accidentally added to the project itself.
 While local testing may show that all is well, with an extensive test suite with a sufficiently large test matrix, issues specific to other platforms which may not have been consistently tested locally on the developer's machine will appear as a build failure on the CI platform.
-Naturally if notifications are set up, the developer responsible for the changeset will be emailed about this failure that they will then need to correct (or verify that it may be a false alarm, because of how these failures can be intermittent due to issues such as DNS).
+Naturally, if notifications are set up, the developer responsible for the changeset will be emailed about this failure that they will then need to correct (or verify that it may be a false alarm, because of how these failures can be intermittent due to issues such as DNS).
 
-Given that most software projects at the ABI are of the free or open source nature, there are many free-to-use services readily available to achieve CI, without having to deploy specific infrastructure such as Buildbot or Jenkins.
+Given that most software projects at the ABI are of the free or open source nature, there are many free-to-use services readily available to achieve CI (e.g. `Travis CI <https://travis-ci.org/>`__, `AppVeyor <https://www.appveyor.com/>`__), without having to deploy specific infrastructure such as `Buildbot <https://buildbot.net/>`__ or `Jenkins <https://jenkins.io/>`__.
 While certain projects at the ABI do make use of that, the maintenance cost of these CI services may be substantial at times.
 Communicate with the project lead for details if a new sub-project is to be set up under that project umbrella.
 
@@ -194,15 +193,16 @@ When everything is ready, all checks are green and both the reviewer and the dev
 
 A goal of the final output graph should preserve all commit identifiers that was used, so they may be used in future debugging and auditing purposes.
 
-While there are a number strategies to doing merges, there are benefits to the one being outlined below, and the steps are:
+While there are a number of strategies to doing merges, there are benefits to the one being outlined below, and the steps are:
 
 - Ensure that the feature branch is not behind the remote target branch (or commit/changeset; more on this in a bit).
 - Rebase the branch on top of that target branch; fix any conflicts, if any.
 - Do not use fast-forward: merge with `git merge --no-ff`.
   Yes, while this creates a merge commit when technically none is needed, this allows the preservation of commit identifiers to be done more easily.
 
-The target branch is often times the main development branch, however, there are situations where this is not the case, for instance the changes that are being made need to be backported as they may be minor fixes to a number of versions.
-In this case a common base commit to all the merge targets should be used for the rebase, before the `git merge --no-ff` is done on every afflicted branches that require the features that is being introduced.
+The target branch is often times the main development branch, however, there are situations where this is not the case.
+For instance, the changes that are being made need to be backported as they may be minor fixes to a number of versions.
+In this case, a common base commit to all the merge targets should be used for the rebase, before the `git merge --no-ff` is done on every afflicted branches that require the features that is being introduced.
 
 Also note that `git rebase` may be used to execute the unit tests associated with the project for every single commit that had been made, to ensure that every commit being merged into the target branch passed all the tests.
 
