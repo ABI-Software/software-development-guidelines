@@ -79,12 +79,12 @@ This is where "feature branches" comes in.
 
 Whenever a new feature is required or conceived, one might have accidentally started doing some development and made commits, and end up with some commits like this:
 
-```
-40f05f3625 (master) Hooking up to the plugin framework
-d8983bda98 Improvement to that new feature, more tests
-accc552557 Adding some new foo feature
-b5d64c7ce7 (origin/master) Latest stable release
-```
+::
+
+   40f05f3625 (master) Hooking up to the plugin framework
+   d8983bda98 Improvement to that new feature, more tests
+   accc552557 Adding some new foo feature
+   b5d64c7ce7 (origin/master) Latest stable release
 
 Note that `origin` here means the original source that this working tree is cloned from.
 
@@ -93,11 +93,11 @@ Do not fret, simply do a `git checkout -b foo_feature` and continue development 
 What to do with the `master` branch that is now ahead of the `origin/master`?
 Make *sure* the current working tree is clean (use `git status` to check) and then simply do:
 
-```
-git checkout master
-git reset --hard origin/master
-git checkout foo_feature        # to return to local feature branch
-```
+::
+
+   git checkout master
+   git reset --hard origin/master
+   git checkout foo_feature        # to return to local feature branch
 
 This cleans the working tree (wiping any changes that haven't been committed or stashed elsewhere) and then set the local `master` branch to be identical to the one in `origin`.
 
@@ -137,23 +137,23 @@ Commit message
 A project should adopt a specific format and then adhere to them.
 For projects managed by Tommy, the commit messages follow this formula:
 
-```
-Explanative description at most 50 characters long
+::
 
-- Leave an empty line above.
-- A list of points describing what was done, and more importantly, why
-  it was done, if applicable.
-- Note the indentation in point form.
+   Explanative description at most 50 characters long
 
-  - Sometimes there may be subpoints, they be spaced out like so.
-  - Even while in point form, make an attempt to form complete
-    sentences.
+   - Leave an empty line above.
+   - A list of points describing what was done, and more importantly, why
+     it was done, if applicable.
+   - Note the indentation in point form.
 
-- All lines after the first line should be kept to a maximum width of 72
-  characters.
-- These rules are in place to ensure compatible fix-width font usage
-  under various different contexts.
-```
+     - Sometimes there may be subpoints, they be spaced out like so.
+     - Even while in point form, make an attempt to form complete
+       sentences.
+
+   - All lines after the first line should be kept to a maximum width of 72
+     characters.
+   - These rules are in place to ensure compatible fix-width font usage
+     under various different contexts.
 
 What about actually promoting the changes into the main branch?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
